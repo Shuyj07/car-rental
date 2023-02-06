@@ -129,11 +129,10 @@ contract MyContract {
     
     // calculated cost with input of "_id" of car & days to rent
     function showTotalCost(uint _id, uint rentalDays)
-    view public isPositive(rentalDays) returns(uint){      
-        // SafeMath.add(SafeMath.mul(carlist[_id]._rentalprice, rentalDays),carlist[_id]._depositfee);
-        //mulresult += carlist[_id]._depositfee;
+    view public isPositive(rentalDays) returns(uint){
+        SafeMath.add(SafeMath.mul(carlist[_id]._rentalprice, rentalDays),carlist[_id]._depositfee);
         // safeAdd(mulresult,carlist[_id]._depositfee);
-        return carlist[_id]._rentalprice*rentalDays+carlist[_id]._depositfee;
+        //return carlist[_id]._rentalprice*rentalDays+carlist[_id]._depositfee;
     }
     
     // lock the car with "_id" & start to process rent payment
@@ -232,14 +231,7 @@ contract MyContract {
         }
     }
 
-    // function found(uint _id) 
-    // public isCompany(msg.sender){
-    //     if (carlist[_id]._carstate == State.NotReturned){
-    //         carlist[_id]._carstate = State.damaged;
-    //         console.log("Car", _id,"The car is found but set as damaged");
-    //     }
-    // }
-    
+
     // convert contract status suspend
     function suspend()
     public isCompany(msg.sender){ 
